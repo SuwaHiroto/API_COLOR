@@ -1,0 +1,297 @@
+/* =========================================
+   ESTILOS GENERALES (Google Fonts Poppins)
+   ========================================= */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* =========================================
+   PÁGINA 1: INDEX.PHP (Generador)
+   ========================================= */
+.index-body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+:root {
+    --brand-color: #6f42c1;
+    /* Variable controlada por JS en index.php */
+}
+
+.bg-glow {
+    position: absolute;
+    width: 50vw;
+    height: 50vw;
+    background-color: var(--brand-color);
+    border-radius: 50%;
+    filter: blur(150px);
+    opacity: 0.15;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.4s ease;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.05);
+    padding: 3rem 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.custom-color-picker {
+    -webkit-appearance: none;
+    border: none;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    background: none;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin: 0 auto;
+    display: block;
+}
+
+.custom-color-picker::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.custom-color-picker::-webkit-color-swatch {
+    border: 6px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.custom-color-picker:hover {
+    transform: scale(1.08);
+}
+
+.hex-input {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border-radius: 16px;
+    border: 2px solid #e9ecef;
+    color: #2b2b2b;
+    transition: all 0.3s ease;
+    box-shadow: none !important;
+    padding: 15px;
+}
+
+.hex-input:focus {
+    border-color: var(--brand-color);
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.btn-generate {
+    background-color: var(--brand-color);
+    color: white;
+    border-radius: 50px;
+    padding: 16px 30px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-generate:hover {
+    background-color: var(--brand-color) !important;
+    color: #ffffff !important;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    filter: brightness(0.85);
+    /* Oscurece ligeramente el botón al pasar el ratón */
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #adb5bd;
+    font-weight: 600;
+    margin: 2rem 0;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px dashed #e9ecef;
+}
+
+.divider:not(:empty)::before {
+    margin-right: 1em;
+}
+
+.divider:not(:empty)::after {
+    margin-left: 1em;
+}
+
+/* =========================================
+   PÁGINA 2: GENERATE.PHP (Vista Previa)
+   ========================================= */
+.generate-body {
+    background-color: #f4f7f6;
+}
+
+.color-swatch {
+    height: 100px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.color-swatch:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.swatch-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.swatch-hex {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.preview-wrapper {
+    background-color: var(--ui-bg);
+    color: var(--ui-body-text);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    margin-bottom: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.ui-navbar {
+    background-color: var(--ui-main);
+    padding: 15px 0;
+}
+
+.ui-navbar .navbar-brand {
+    color: var(--ui-text-on-main) !important;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.ui-navbar .nav-link {
+    color: var(--ui-text-on-main) !important;
+    opacity: 0.8;
+    font-weight: 400;
+}
+
+.ui-navbar .nav-link:hover {
+    opacity: 1;
+}
+
+.ui-hero {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.ui-hero h1 {
+    font-weight: 700;
+    color: var(--ui-main);
+    letter-spacing: -1px;
+}
+
+.ui-btn-primary {
+    background-color: var(--ui-complementary);
+    color: #000000;
+    font-weight: 600;
+    padding: 14px 35px;
+    border-radius: 50px;
+    border: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ui-btn-primary:hover {
+    background-color: var(--ui-main) !important;
+    color: var(--ui-text-on-main) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.ui-card {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    padding: 30px 20px;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    position: relative;
+    z-index: 1;
+}
+
+.ui-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background-color: var(--ui-main);
+    border-radius: 20px 20px 0 0;
+    transition: height 0.3s ease;
+    z-index: -1;
+}
+
+.ui-card:hover {
+    transform: translateY(-10px);
+}
+
+.ui-card:hover::before {
+    height: 100%;
+    border-radius: 20px;
+    opacity: 0.05;
+}
+
+.ui-icon-wrap {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.03);
+    color: var(--ui-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 20px;
+    transition: all 0.3s ease;
+}
+
+.ui-card:hover .ui-icon-wrap {
+    background-color: var(--ui-main);
+    color: var(--ui-text-on-main);
+    transform: rotate(10deg);
+}
+
+.ui-footer {
+    background-color: var(--ui-main);
+    color: var(--ui-text-on-main);
+    padding: 30px 0;
+}
